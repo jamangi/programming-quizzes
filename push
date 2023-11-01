@@ -1,25 +1,21 @@
 #!/bin/bash
 
-# Define your GitHub username and token (or password)
-GITHUB_USERNAME="your git email"
-GITHUB_TOKEN="fake token"
+# Define your GitHub username and token
+GITHUB_USERNAME="your username"
+GITHUB_TOKEN="your access token"
 
 # Set the GitHub repository URL
 REPO_URL="https://github.com/jamangi/programming-quizzes.git"
 
+# Configure Git to use the credential helper
+git config credential.helper store
+echo -e "protocol=https\nhost=github.com\nusername=$GITHUB_USERNAME\npassword=$GITHUB_TOKEN" | git credential approve
+
 # Perform the Git operations
-git add .                   # Stage all changes
-git reset push
-git commit -m "Scheduled Update"   # Commit changes with a message
+git add .
+git reset push # this ensures your changes to push are not pushed to the repo, for security
+git commit -m "Scheduled Update"
 
-# Set Git credentials using environment variables
-export GIT_USERNAME="$GITHUB_USERNAME"
-export GIT_PASSWORD="$GITHUB_TOKEN"
-
-# Push to GitHub with credentials
+# Push to GitHub without entering credentials
 git push "$REPO_URL"
-
-# Unset Git credentials
-unset GIT_USERNAME
-unset GIT_PASSWORD
 

@@ -2,7 +2,7 @@
 
 # Define your GitHub username and token (or password)
 GITHUB_USERNAME="your_username"
-GITHUB_TOKEN="your_token_or_password"
+GITHUB_TOKEN="fake token"
 
 # Set the GitHub repository URL
 REPO_URL="https://github.com/yourusername/yourrepository.git"

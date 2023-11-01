@@ -8,9 +8,9 @@ GITHUB_TOKEN="fake token"
 REPO_URL="https://github.com/jamangi/programming-quizzes.git"
 
 # Perform the Git operations
-git rm --cached push
 git add .                   # Stage all changes
-git commit -m "Scheduled Update (from rasp)"   # Commit changes with a message
+git reset push
+git commit -m "Scheduled Update"   # Commit changes with a message
 
 # Set Git credentials using environment variables
 export GIT_USERNAME="$GITHUB_USERNAME"
